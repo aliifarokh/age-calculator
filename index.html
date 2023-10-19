@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <div class="inps">
+                <input type="date" id="date">
+                <button>Calculate</button>
+                <div id="txt"></div>
+            </div>
+            <div class="result">
+                <span>
+                    <span id="ry">_</span>
+                    <span>years</span>
+                </span>
+                <span>
+                    <span id="rm">_</span>
+                    <span>months</span>
+                </span>
+                <span>
+                    <span id="rd">_</span>
+                    <span>days</span>
+                </span>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let inpdate = document.getElementById('date')
+    let btn = document.getElementsByTagName('button')[0]
+    let txt = document.getElementById('txt')
+    let ry = document.getElementById('ry')
+    let rm = document.getElementById('rm')
+    let rd = document.getElementById('rd')
+
+    txt.innerText = ''
+
+    let year = 0
+    let month = 0
+    let day = 0
+
+    let flag = ''
+    let flag1 = ''
+
+    let resDay = 0
+    let resMonth = 0
+    let resYear = 0
+
+
+    let daysOfMonth = 0
+    let monthOfYear = 0
+
+
+    inpdate.addEventListener('change', (e) => {
+        year = +(e.target.value.slice(0, 4))
+        month = +(e.target.value.slice(5, 7))
+        day = +(e.target.value.slice(8, 10))
+
+
+
+
+        switch (month) {
+            case 1: flag1 = 'Jan'; break;
+            case 2: flag1 = 'Feb'; break;
+            case 3: flag1 = 'Mar'; break;
+            case 4: flag1 = 'Apr'; break;
+            case 5: flag1 = 'May'; break;
+            case 6: flag1 = 'Jun'; break;
+            case 7: flag1 = 'Jul'; break;
+            case 8: flag1 = 'Aug'; break;
+            case 9: flag1 = 'Sep'; break;
+            case 10: flag1 = 'Oct'; break;
+            case 11: flag1 = 'Nov'; break;
+            case 12: flag1 = 'Dec'; break;
+            default: flag1 = 'unknown Month';
+        }
+
+        txt.innerText = 'Your BirthDay is : ' + flag + ' ' + day + ' ' + flag1 + ' ' + year
+
+    })
+
+
+    btn.addEventListener('click', (e) => {
+        if (txt.textContent == '') {
+            alert('adam bash')
+        } else {
+            let today = new Date();
+            let preday = today.getDate()
+            let premonth = today.getMonth() + 1
+            let preyear = today.getFullYear()
+
+
+            switch (premonth) {
+                case 0: daysOfMonth = 31; break;
+                case 1: daysOfMonth = 28; break;
+                case 2: daysOfMonth = 31; break;
+                case 3: daysOfMonth = 30; break;
+                case 4: daysOfMonth = 31; break;
+                case 5: daysOfMonth = 30; break;
+                case 6: daysOfMonth = 31; break;
+                case 7: daysOfMonth = 31; break;
+                case 8: daysOfMonth = 30; break;
+                case 9: daysOfMonth = 31; break;
+                case 10: daysOfMonth = 30; break;
+                case 11: daysOfMonth = 31; break;
+
+                default:
+                    break;
+            }
+
+
+            if (preday >= day) {
+                resDay = preday - day
+                if (premonth >= month) {
+                    resMonth = premonth - month
+                    resYear = preyear - year
+                } else {
+                    resYear = (preyear - year) - 1
+                    resMonth = (premonth - month) + 12
+                    console.log(month);
+                }
+            } else {
+                resDay = (preday - day) + daysOfMonth
+                if (premonth >= month) {
+                    resMonth = (premonth - month) - 1
+                    resYear = preyear - year
+                } else {
+                    resMonth = (premonth - month) + 11
+                    resYear = preyear - year
+                }
+            }
+
+            ry.innerText = resYear
+            rm.innerText = resMonth
+            rd.innerText = resDay
+            
+
+            if(resMonth == 0 && resDay == 0){
+                alert('Happy BirthDay ' +resYear)
+            }
+
+
+            console.log('my age is :  ' + resYear + ' years  ' + resMonth + ' months  ' + resDay + ' days  ');
+        }
+    })
+</script>
+
+</html>

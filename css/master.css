@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(10, 108, 241);
+  justify-content: center;
+  align-items: center;
+}
+main > .box {
+  width: 70%;
+  height: 410px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  main > .box {
+    width: 45%;
+  }
+}
+main > .box > * {
+  width: 100%;
+  display: flex;
+}
+main > .box > .inps {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 25px;
+  border-radius: 10px;
+  background-color: black;
+}
+main > .box > .inps > * {
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: white;
+}
+main > .box .result {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+main > .box .result > span {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 10px;
+}
+main > .box .result > span > span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  height: 50%;
+}
+main > .box .result > span > span:nth-of-type(1) {
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+}
+main > .box .result > span > span:nth-of-type(2) {
+  font-size: 15px;
+  color: gray;
+}/*# sourceMappingURL=master.css.map */

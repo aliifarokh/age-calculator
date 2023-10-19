@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(10, 108, 241);
+    justify-content: center;
+    align-items: center;
+    >.box{
+        width: 70%;
+        height: 410px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        // background-color: black;
+        // border: 2px solid red;
+        @media screen and (min-width:768px) {
+            width: 45%;
+        }
+        >*{
+            width: 100%;
+            display: flex;
+        }
+        >.inps{
+            // border: 2px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px 25px;
+            border-radius: 10px;
+            background-color: black;
+            >*{
+                display: flex;
+                width: 100%;
+                margin: 10px 0;
+                height: 55px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+                padding: 0 20px;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+                font-weight: 500;
+                background-color: white;
+            }
+        }
+        .result{
+            display: flex;
+            border-radius: 10px;
+            justify-content: space-between;
+            >span{
+                width: 90px;
+                height: 90px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                border-radius: 10px;
+                >span{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-transform: capitalize;
+                    height: 50%;
+                    
+                    &:nth-of-type(1){
+                        font-size: 17px;
+                        color: white;
+                        font-weight: bold;
+                    }
+                    &:nth-of-type(2){
+                        font-size: 15px;
+                        color: gray;
+                    }
+                }
+            }
+        }
+    }
+}
